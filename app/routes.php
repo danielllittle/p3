@@ -15,3 +15,28 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+Route::get('/practice', function() {
+  echo App::environment();
+});
+
+Route::post('/lorem-ipsum', function() 
+{
+  $validator = Validator::make(
+    array('num_paragraphs' =>'required|between:1,5'),Input::all()
+  );
+  if ($validator->fails()) {
+    //return  View::make('/welcome');
+  }
+  return View::make('lorem-ipsum');
+});
+
+Route::get('lorem-ipsum', function()
+{
+  return View::make('lorem-ipsum');
+});
+Route::get('/welcome', function()
+{
+	return View::make('welcome');
+});
+
