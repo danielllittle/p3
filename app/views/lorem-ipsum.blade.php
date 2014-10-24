@@ -3,24 +3,36 @@
 @section('title')
 lorem-ipsum
 @stop
+@section('nav')
+ {{ HTML::linkRoute('welcome', 'Home') }}
+@stop
+@section('description')
+Here is a utility which provides a random set of users.  Rather that providing generic 'John and Jane Doe' users, this development tool adds a bit in politcal slant to
+the process.
+
+@stop
 @section('content')
-How many paragraphs do you want?
-  {{ Form::open(array('url' => 'lorem-ipsum')) }}
-  {{ Form::number('num_paragraphs') }}
+<br>
+  {{ Form::open(array('url' => 'lorem-ipsum', 'method' => 'get')) }}
+  {{ Form::label('num_paragraphs', 'How many paragraphs do you want?') }}
+  {{ Form::selectRange('num_paragraphs', 1, 9, Input::get('num_paragraphs'));}}
+
   {{ Form::submit('Generate') }}
   {{ Form::close() }}
+<br>
 @stop
-<?php 
+@section('results')
+@if(Input::has('num_paragraphs'))
+<hr><?php
 $generator = new Badcow\LoremIpsum\Generator();
-$paragraphs = $generator->getParagraphs(2);
-echo implode('<p>', $paragraphs);
+$paragraphs = $generator->getParagraphs(Input::get('num_paragraphs'));
 ?>
-<hr>
-<?php // require the Faker autoloader
+@foreach ($paragraphs as $paragraph)
+    <p>{{ $paragraph }}</p>
+@endforeach
 
-// use the factory to create a Faker\Generator instance
-$faker = Faker\Factory::create();
-for ($i=0; $i < 10; $i++) {
-  echo $faker->name, "<br>";
-}?>
 
+
+
+@endif
+@stop

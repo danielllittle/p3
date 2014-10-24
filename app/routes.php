@@ -20,7 +20,7 @@ Route::get('/practice', function() {
   echo App::environment();
 });
 
-Route::post('/lorem-ipsum', function() 
+Route::post('/lorem-ipsum', function()
 {
   $validator = Validator::make(
         array('num_paragraphs' => array('required','between:1,5'))
@@ -31,26 +31,22 @@ Route::post('/lorem-ipsum', function()
   return View::make('lorem-ipsum');
 });
 
-Route::get('user-generator', function()
+Route::get('user-generator', array('as' => 'user-generator', function()
 {
     $legislators = File::get(app_path().'/database/legislators.json');
     $legislators = json_decode($legislators, true);
-    //$rand_keys = array_rand($input, 2);
-    $firstname = $legislators['objects'][0]['party'];
-    return View::make('user-generator')->with('legislators', $legislators)->with('firstname', $firstname);
-});
+    return View::make('user-generator')->with('legislators', $legislators);
+}));
 
-Route::get('lorem-ipsum', function()
+Route::get('lorem-ipsum', array('as' => 'lorem-ipsum', function()
 {
   return View::make('lorem-ipsum');
-});
-Route::get('/welcome', function()
+}));
+
+Route::get('welcome', array('as' => 'welcome', function()
 {
 	return View::make('welcome');
-});
-
-Route::get('/data', function() {
+}));
 
 
-});
 

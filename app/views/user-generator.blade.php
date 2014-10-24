@@ -3,16 +3,23 @@
 @section('title')
 Political Random User-generator
 @stop
+
+@section('nav')
+ {{ HTML::linkRoute('welcome', '<- back') }}
+ <hr>
+@stop
+
 @section('content')
 
   {{ Form::open(array('url' => 'user-generator', 'method' => 'get')) }}
   {{ Form::label('num_users', 'How many users?') }}
-  {{ Form::number('num_users',Input::get('num_users')) }}<br>
+  {{ Form::number('num_users',Input::get('num_users')) }} (max. 100)<br>
   {{ Form::label('add_social', 'Add Social links?') }}
   {{ Form::checkbox('add_social', 'add_social', Input::get('add_social')) }}<br>
   {{ Form::submit('Generate') }}
   {{ Form::close() }}
-
+@stop
+@section('results')
   @if(Input::has('num_users'))
 
       <?PHP shuffle ( $legislators['objects']);?>
