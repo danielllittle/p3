@@ -13,12 +13,10 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	return View::make('welcome');
 });
 
-Route::get('/practice', function() {
-  echo App::environment();
-});
+
 
 Route::post('/lorem-ipsum', function()
 {
