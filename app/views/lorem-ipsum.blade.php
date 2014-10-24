@@ -10,3 +10,17 @@ How many paragraphs do you want?
   {{ Form::submit('Generate') }}
   {{ Form::close() }}
 @stop
+<?php 
+$generator = new Badcow\LoremIpsum\Generator();
+$paragraphs = $generator->getParagraphs(2);
+echo implode('<p>', $paragraphs);
+?>
+<hr>
+<?php // require the Faker autoloader
+
+// use the factory to create a Faker\Generator instance
+$faker = Faker\Factory::create();
+for ($i=0; $i < 10; $i++) {
+  echo $faker->name, "<br>";
+}?>
+
