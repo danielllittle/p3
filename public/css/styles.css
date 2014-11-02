@@ -1,3 +1,7 @@
 .nav {
     background-color: lightgray;
 }
+
+ul {
+    margin-left: 10px;
+}

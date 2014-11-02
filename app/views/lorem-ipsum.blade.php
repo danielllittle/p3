@@ -4,11 +4,10 @@
 lorem-ipsum
 @stop
 @section('nav')
- {{ HTML::linkRoute('welcome', 'Home') }}
+ {{ HTML::linkRoute('welcome', '<- back') }}
 @stop
 @section('description')
-Here is a utility which provides a random set of users.  Rather that providing generic 'John and Jane Doe' users, this development tool adds a bit in politcal slant to
-the process.
+<br><p>Here is a traditional developer lorem ipsum utility which generates a random set of paragraphs on demand.  The generated content can be utilized to help provide interim page content during the prototype and development cycle.</p>
 
 @stop
 @section('content')
@@ -23,7 +22,7 @@ the process.
 @stop
 @section('results')
 @if(Input::has('num_paragraphs'))
-<hr><?php
+<?php
 $generator = new Badcow\LoremIpsum\Generator();
 $paragraphs = $generator->getParagraphs(Input::get('num_paragraphs'));
 ?>

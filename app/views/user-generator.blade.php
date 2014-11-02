@@ -9,15 +9,36 @@ Political Random User-generator
  <hr>
 @stop
 
-@section('content')
 
+@section('description')
+<p>A random user generator utility with a political slant.   In honor of the upcoming United States elections, the randomly selected user profiles will be formed based on existing United States leaders.
+
+</p>
+Generated profile information includes:
+<ul>
+<li>First Name</li>
+<li>Last Name</li>
+<li>Birthdate</li>
+<li>Phone</li>
+<li>Gender</li>
+<li>Title</li>
+<li>State</li>
+</ul>
+Optional generated social links include:
+<ul><li>Youtube</li>
+<li>Twitter</li>
+<li>US Govt Bio</li>
+</ul>
+@stop
+@section('content')
+  <br>
   {{ Form::open(array('url' => 'user-generator', 'method' => 'get')) }}
   {{ Form::label('num_users', 'How many users?') }}
   {{ Form::number('num_users',Input::get('num_users')) }} (max. 100)<br>
   {{ Form::label('add_social', 'Add Social links?') }}
-  {{ Form::checkbox('add_social', 'add_social', Input::get('add_social')) }}<br>
+  {{ Form::checkbox('add_social', 'add_social', Input::get('add_social')) }}<br><br>
   {{ Form::submit('Generate') }}
-  {{ Form::close() }}
+  {{ Form::close() }}<br>
 @stop
 @section('results')
   @if(Input::has('num_users'))
@@ -26,7 +47,7 @@ Political Random User-generator
 
       @for ($i = 0; $i < Input::get('num_users'); $i++)
           <?PHP $value = $legislators['objects'][$i];?>
-          <p><hr>
+          <p>
           First Name:  {{ $value['person']['firstname'] }}<br>
           Last Name:  {{ $value['person']['lastname'] }}<br>
           Birthday:  {{ $value['person']['birthday'] }}<br>
@@ -49,7 +70,7 @@ Political Random User-generator
                   <A href="{{ $value['website' ]}}" target="_new"><img src="/images/www-web.jpeg"/></A>
               @endif
           @endif
-
+          <hr>
       @endfor
   @endif
 @stop

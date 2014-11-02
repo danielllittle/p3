@@ -10,7 +10,8 @@
 
 <body>
   <div class="nav">@yield('nav')</div>
-  @yield('content')
+  @yield('description')<hr>
+  @yield('content')<hr>
   @yield('results')
 </body>
 </html>
