@@ -1,29 +1,48 @@
-## Laravel PHP Framework
+# P3 Project: Developer's Best Friend
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/downloads.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+## Live URL
+<http://p3.harvardalm.me>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, and caching.
+## Description
+A toolbox utility for helping developers with:
+  * generating random user profiles
+  * generating random paragraph text.
 
-Laravel aims to make the development process a pleasing one for the developer without sacrificing application functionality. Happy developers make the best code. To this end, we've attempted to combine the very best of what we have seen in other web frameworks, including frameworks implemented in other languages, such as Ruby on Rails, ASP.NET MVC, and Sinatra.
+## Details for teaching team
+No login required.  Project will be presented in screencast format.
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+The file `legislators.json` was used to store the array containing over 500 users.
 
-## Official Documentation
+Delivered the following features:
 
-Documentation for the entire framework can be found on the [Laravel website](http://laravel.com/docs).
+    General
+    1. 'Welcome' default landing page 
+    2. Site navigation
+        -page links provided from welcome to lorem ipsum & user profile tools
+        -top level navigation links on lorem ipsum & user profile referring back to welcome landing page
+    3. Dynamic contextual page title
+        
+    lorem ipsum utility
+    1.  User drop down input assigns dynamic number of generated paragraphs
+      -range of values supported (1-9)
+    2.  Generated lorem ipsum paragraphs formed with integrated third-party library (see Outside code below)
+     
+    User Profile utility (with a political slant!)
+    1.  User textbox input assigns dynamic number of generated profiles
+    2.  toolbox stores over 500 random users in JSON format
+    3.  Implemented validation requiring numeric input
+          -max 100 limit validation not delivered
+    4.  user option to include social profile links generated for Web Bio, YouTube & Twitter 
+    5.  political theme - user profiles are formed from existing US political leaders in honor of upcoming elections
+    
 
-### Contributing To Laravel
+## Outside code
+* For the lorem ipsum text generator, PHP package provided by [badcow/lorem-ipsum](https://packagist.org/packages/badcow/lorem-ipsum)
+* For the user profile generator, User data supplied by [govtrack.us API](https://www.govtrack.us/api/v2/role?current=true&limit=600)
 
-**All issues and pull requests should be filed on the [laravel/framework](http://github.com/laravel/framework) repository.**
+## Social Icons provided by:
+1. [Twitter Button](https://about.twitter.com/resources/buttons)
+2. [YouTube](http://www.youtube.com/yt/brand/downloads.html)
+2. [SoftIcons.com](http://files.softicons.com/download/system-icons/cats-icons-2-by-mcdo-design/png/32x32/Web%20Site.png)
 
-### License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
-
-Outside Contributions:
-Web icon -- www.:qsofticons.com
-Twitter (and related dependendcies) https://about.twitter.com/resources/buttons#follow
+==
